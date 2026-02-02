@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Disease Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="form-page">
+    <h1>Liver Disease Prediction</h1>
+    <p class="subtitle">Enter patient health details</p>
+
+    <form class="health-form" onsubmit="submitLiverForm(event)">
+
+        <input type="number" id="age" placeholder="Age" required>
+
+        <select id="gender" required>
+            <option value="">Gender</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+
+        <input type="number" step=0.1 id="tbilirubin" placeholder="Total Bilirubin" required>
+
+        <input type="number" step=0.1 id="dbilirubin" placeholder="Direct Bilirubin" required>
+
+        <input type="number" step="any" id="aaphosphotase" placeholder="Alkaline Phosphotase" required>
+
+        <input type="number" step="any" id="spaamino" placeholder="SGPT (Alamine Aminotransferase)" required>
+
+        <input type="number" step="any" id="soaamino" placeholder="SGOT (Aspartate Aminotransferase)" required>
+
+        <input type="number" step="any" id="protiens" placeholder="Total Proteins" required>
+
+        <input type="number" step="any" id="albumin" placeholder="Albumin" required>
+
+        <input type="number" step=0.1 id="globulin" placeholder="Globulin" required>
+
+        <button type="submit">Predict Liver Disease</button>
+    </form>
+
+    <!-- RESULT -->
+    <div id="result" class="result-box"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

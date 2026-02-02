@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Disease | Health Oracle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="disease-page">
+    <h1>Select Disease</h1>
+    <p class="subtitle">Choose a disease to predict risk</p>
+
+    <div class="disease-grid">
+        <div class="disease-card" onclick="selectDisease('heart')">
+            ❤️
+            <h3>Heart Disease</h3>
+        </div>
+
+        <div class="disease-card" onclick="selectDisease('diabetes')">
+            🩸
+            <h3>Diabetes</h3>
+        </div>
+
+        <div class="disease-card" onclick="selectDisease('liver')">
+            🧬
+            <h3>Liver Disease</h3>
+        </div>
+
+        <div class="disease-card" onclick="selectDisease('stroke')">
+            🧠
+            <h3>Stroke</h3>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

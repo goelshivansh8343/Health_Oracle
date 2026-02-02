@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroke Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="form-page">
+    <h1>Stroke Prediction</h1>
+    <p class="subtitle">Enter patient health details</p>
+
+    <form class="health-form" onsubmit="submitStrokeForm(event)">
+
+        <select id="gender" required>
+            <option value="">Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <input type="number" id="age" placeholder="Age" required>
+
+        <select id="hypertension" required>
+            <option value="">Hypertension</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <select id="heartdisease" required>
+            <option value="">Heart Disease</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <select id="married" required>
+            <option value="">Ever Married</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <select id="worktype" required>
+            <option value="">Work Type</option>
+            <option value="Private">Private</option>
+            <option value="Self-employed">Self-employed</option>
+            <option value="children">Children</option>
+            <option value="Govt_job">Government Job</option>
+            <option value="Never_worked">Never Worked</option>
+        </select>
+
+        <select id="residencetype" required>
+            <option value="">Residence Type</option>
+            <option value="Urban">Urban</option>
+            <option value="Rural">Rural</option>
+        </select>
+
+        <input type="number" step="any" id="glucose_level"
+               placeholder="Average Glucose Level" required>
+
+        <input type="number" step="any" id="bmi"
+               placeholder="Body Mass Index (BMI)" required>
+
+        <select id="smoking_status" required>
+            <option value="">Smoking Status</option>
+            <option value="never smoked">Never Smoked</option>
+            <option value="formerly smoked">Formerly Smoked</option>
+            <option value="smokes">Smokes</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+
+        <button type="submit">Predict Stroke Risk</button>
+    </form>
+
+    <!-- RESULT -->
+    <div id="result" class="result-box"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

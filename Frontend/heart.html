@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="form-page">
+    <h1>Heart Disease Prediction</h1>
+    <p class="subtitle">Enter patient health details</p>
+
+    <form class="health-form" onsubmit="submitHeartForm(event)">
+
+        <input type="number" placeholder="Age" id="age" required>
+
+        <select id="sex" required>
+            <option value="">Sex</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+
+        <select id="cp" required>
+            <option value="">Chest Pain Type </option>
+            <option value="0">Typical Angina</option>
+            <option value="1">Atypical Angina</option>
+            <option value="2">Non-anginal Pain</option>
+            <option value="3">Asymptomatic</option>
+        </select>
+
+        <input type="number" step="any" placeholder="Resting Blood Pressure " id="trestbps" required>
+        <input type="number" step="any" placeholder="Cholesterol " id="chol" required>
+
+        <select id="fbs" required>
+            <option value="">Fasting Blood Sugar > 120 mg/dl</option>
+            <option value="1">True</option>
+            <option value="0">False</option>
+        </select>
+
+        <select id="restecg" required>
+            <option value="">Resting ECG </option>
+            <option value="0">Normal</option>
+            <option value="1">ST-T abnormality</option>
+            <option value="2">Left ventricular hypertrophy</option>
+        </select>
+
+        <input type="number" step="any" placeholder="Max Heart Rate " id="thalach" required>
+
+        <select id="exang" required>
+            <option value="">Exercise Induced Angina</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <input type="number" step="any" placeholder="ST Depression " id="oldpeak" required>
+
+        <select id="slope" required>
+            <option value="">Slope</option>
+            <option value="0">Upsloping</option>
+            <option value="1">Flat</option>
+            <option value="2">Downsloping</option>
+        </select>
+
+        <select id="ca" required>
+            <option value="">Number of Major Vessels </option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <select id="thal" required>
+            <option value="">Thal</option>
+            <option value="1">Normal</option>
+            <option value="2">Fixed Defect</option>
+            <option value="3">Reversible Defect</option>
+        </select>
+
+        <!-- <button type="submit">Predict Heart Disease</button> -->
+        <form class="health-form" onsubmit="submitHeartForm(event)">
+    <!-- all inputs -->
+
+    <button type="submit">Predict Heart Disease</button>
+</form>
+
+<!-- 👇 ADD THIS EXACTLY HERE -->
+<div id="result" class="result-box"></div>
+
+
+    </form>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

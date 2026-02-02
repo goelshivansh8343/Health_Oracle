@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="form-page">
+    <h1>Diabetes Prediction</h1>
+    <p class="subtitle">Enter patient health details</p>
+
+    <form class="health-form" onsubmit="submitDiabetesForm(event)">
+
+        <input type="number" id="pregnancies" placeholder="Number of Pregnancies" required>
+
+        <input type="number" id="glucose" placeholder="Glucose Level" required>
+
+        <input type="number" id="bloodpressure" placeholder="Blood Pressure" required>
+
+        <input type="number" id="skinthickness" placeholder="Skin Thickness" required>
+
+        <input type="number" step="any" id="insulin" placeholder="Insulin Level" required>
+
+        <input type="number" step="any" id="bmi" placeholder="Body Mass Index (BMI)" required>
+
+        <input type="number" step="any" id="dpf" placeholder="Diabetes Pedigree Function" required>
+
+        <input type="number" id="age" placeholder="Age" required>
+
+        <button type="submit">Predict Diabetes</button>
+    </form>
+
+    <!-- RESULT -->
+    <div id="result" class="result-box"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
