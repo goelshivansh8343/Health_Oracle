@@ -1,16 +1,19 @@
 from fastapi import FastAPI
-from pydantic import BaseModel,Field
+from pydantic import BaseModel
 from Diabetes.Predict_Diabetes import predict_diabetes
 from Liver_Disease.Predict_Liver import predict_disease
 from Stroke_Disease.Predict_Stroke import predict_Stroke
 from Heart_Disease.Predict_Heart import predict_HeartDiseases
-from typing import Annotated,Literal
-from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 app=FastAPI(title="Health_Oracle")
+app.mount("/static", StaticFiles(directory="Frontend"), name="static")
+
+@app.get("/")
+def serve_index():
+    return FileResponse("Frontend/index.html")
 
 app.add_middleware(
     CORSMiddleware,
@@ -76,17 +79,17 @@ class Stroke(BaseModel):
 
 @app.post("/predict/Heart")
 def Predict_Heart(Features:Heart):
-    data=jsonable_encoder(Features)
+    data=Features.model_dump()
     return predict_HeartDiseases(list(data.values()))
 
 @app.post("/predict/Diabetes")
 def Predict_Diabetes(Features:Diabetic):
-    data=jsonable_encoder(Features)
+    data=Features.model_dump()
     return predict_diabetes(list(data.values()))
 
 @app.post("/predict/Liver")
 def Predict_Liver(Features:Liver):
-    data=jsonable_encoder(Features)
+    data=Features.model_dump()
     return predict_disease(list(data.values()))
 
 @app.post("/predict/Stroke")
@@ -96,14 +99,3 @@ def Predict_Stroke(Features:Stroke):
 
 
 
-@app.get("/")
-def root():
-    return RedirectResponse(url="/index.html")
-
-
-
-app.mount(
-    "/", 
-    StaticFiles(directory="Frontend", html=True), 
-    name="frontend"
-)

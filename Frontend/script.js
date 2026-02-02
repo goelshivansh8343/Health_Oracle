@@ -1,35 +1,25 @@
 function getStarted() {
-    // later this will go to login page
-    window.location.href = "diseases.html";
+    window.location.href = "/static/Diseases.html";
 }
 
 
-function selectDisease(disease) {
-    // store selected disease
-    localStorage.setItem("selectedDisease", disease);
-
-    // next page (login or form)
-    window.location.href = "login.html";
-}
 
 function selectDisease(disease) {
     localStorage.setItem("selectedDisease", disease);
 
     if (disease === "heart") {
-        window.location.href = "heart.html";
+        window.location.href = "/static/heart.html";
     }
     else if(disease === "diabetes"){
-        window.location.href = "Diabetes.html"
+        window.location.href = "/static/Diabetes.html"
     }
     else if(disease === "liver"){
-        window.location.href = "Liver.html"
+        window.location.href = "/static/Liver.html"
     }
     else if(disease === "stroke"){
-        window.location.href ="Stroke.html"
+        window.location.href ="/static/Stroke.html"
     }
-     else {
-        window.location.href = "login.html"; // temporary for others
-    }
+ 
 }
 
 
@@ -52,7 +42,7 @@ function submitHeartForm(event) {
         Thal: Number(document.getElementById("thal").value)
     };
     
-   fetch("http://127.0.0.1:8000/predict/Heart", {
+   fetch("/predict/Heart", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
@@ -62,7 +52,7 @@ function submitHeartForm(event) {
 .then(res => res.json())
 .then(result => {
     console.log("Prediction:", result);
-    // print(result)
+   
 
     const risk = Number(result.Heart_Disease);
     const category = result.Risk_Category;
@@ -95,7 +85,7 @@ function submitDiabetesForm(event) {
         Age: Number(document.getElementById("age").value)
     };
 
-    fetch("http://127.0.0.1:8000/predict/Diabetes", {
+    fetch("/predict/Diabetes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -133,7 +123,7 @@ function submitLiverForm(event) {
     };
     
 
-    fetch("http://127.0.0.1:8000/predict/Liver", {
+    fetch("/predict/Liver", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -170,7 +160,7 @@ function submitStrokeForm(event) {
         Smoking_Status: document.getElementById("smoking_status").value
     };
 
-    fetch("http://127.0.0.1:8000/predict/Stroke", {
+    fetch("/predict/Stroke", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
