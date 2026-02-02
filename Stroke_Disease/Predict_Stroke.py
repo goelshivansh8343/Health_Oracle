@@ -38,7 +38,7 @@ def predict_Stroke(features):
     df=pd.DataFrame([val],columns=["gender","age","hypertension","heart_disease","ever_married","work_type","Residence_type","avg_glucose_level","bmi","smoking_status"])
     ans=Trained_Stroke.predict_proba(df)
     return {
-        "Stroke_Disease":ans[0][1]*100,
+        "Stroke_Disease":round(ans[0][1]*100,2),
         "Risk_Category":get_risk_category(ans[0][1]*100),
         "Health_Advice":get_Health_advice(get_risk_category(ans[0][1]*100))
 }

@@ -35,7 +35,7 @@ def predict_disease(features):
         features[idx]=np.log1p(features[idx])
     ans=Trained_Liver.predict_proba(np.array(features).reshape(1,-1))
     return {
-        "Liver_Disease":ans[0][1]*100,
+        "Liver_Disease":round(ans[0][1]*100,2),
         "Risk_Category":get_risk_category(ans[0][1]*100),
         "Health_Advice":get_Health_advice(get_risk_category(ans[0][1]))
     }

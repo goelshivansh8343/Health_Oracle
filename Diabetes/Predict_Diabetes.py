@@ -39,7 +39,7 @@ def predict_diabetes(features):
     
 
     return {
-        "Diabetic_Probability":ans[0][1]*100,
+        "Diabetic_Probability":round(ans[0][1]*100,2),
         "Risk_Category":get_risk_category(ans[0][1]*100),
         "Health_Advice":get_Health_advice(get_risk_category(ans[0][1]*100))
     }
