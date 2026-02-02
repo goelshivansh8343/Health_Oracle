@@ -7,6 +7,8 @@ from Heart_Disease.Predict_Heart import predict_HeartDiseases
 from typing import Annotated,Literal
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
 
 app=FastAPI(title="Health_Oracle")
 
@@ -75,7 +77,6 @@ class Stroke(BaseModel):
 @app.post("/predict/Heart")
 def Predict_Heart(Features:Heart):
     data=jsonable_encoder(Features)
-    print(data)
     return predict_HeartDiseases(list(data.values()))
 
 @app.post("/predict/Diabetes")
@@ -94,3 +95,15 @@ def Predict_Stroke(Features:Stroke):
     return predict_Stroke(data)
 
 
+
+@app.get("/")
+def root():
+    return RedirectResponse(url="/index.html")
+
+
+
+app.mount(
+    "/", 
+    StaticFiles(directory="Frontend", html=True), 
+    name="frontend"
+)
